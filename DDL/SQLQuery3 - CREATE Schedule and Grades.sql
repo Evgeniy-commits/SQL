@@ -1,46 +1,46 @@
 --SQLQuery3 - CREATE Schedule and Grades.sql
 USE PV_521_DDL;
 
---CREATE TABLE Schedule
---(
---	lesson_id		BIGINT		PRIMARY KEY,
---	[date]			DATE		NOT NULL,
---	[time]			TIME(0)		NOT NULL,
---	[group]			INT			NOT NULL
---	CONSTRAINT	FK_Schedule_Groups	FOREIGN KEY REFERENCES Groups(group_id),
---	discipline		SMALLINT	NOT NULL
---	CONSTRAINT	FK_Schedule_Disciplines	FOREIGN KEY REFERENCES Disciplines(discipline_id),
---	teacher			INT			NOT NULL
---	CONSTRAINT	FK_Schedule_Teacher	FOREIGN KEY REFERENCES Teachers(teacher_id),
---	[subject]		NVARCHAR(256),
---	spend			BIT			NOT NULL
---);
+CREATE TABLE Schedule
+(
+	lesson_id		BIGINT		PRIMARY KEY,
+	[date]			DATE		NOT NULL,
+	[time]			TIME(0)		NOT NULL,
+	[group]			INT			NOT NULL
+	CONSTRAINT	FK_Schedule_Groups	FOREIGN KEY REFERENCES Groups(group_id),
+	discipline		SMALLINT	NOT NULL
+	CONSTRAINT	FK_Schedule_Disciplines	FOREIGN KEY REFERENCES Disciplines(discipline_id),
+	teacher			INT			NOT NULL
+	CONSTRAINT	FK_Schedule_Teacher	FOREIGN KEY REFERENCES Teachers(teacher_id),
+	[subject]		NVARCHAR(256),
+	spend			BIT			NOT NULL
+);
 
---CREATE TABLE Grades
---(
---	student		INT			CONSTRAINT	FK_Grades_Students	FOREIGN KEY REFERENCES Students(student_id),
---	lesson		BIGINT		CONSTRAINT	FK_Grades_Schedule	FOREIGN KEY REFERENCES Schedule(lesson_id),
---	PRIMARY	KEY(student,lesson),
---	grade_1		TINYINT		CONSTRAINT	CK_Grade_1		CHECK	(grade_1>0 AND grade_1<=12),
---	grade_2		TINYINT		CONSTRAINT	CK_Grade_2		CHECK	(grade_2>0 AND grade_2<=12)
---);
+CREATE TABLE Grades
+(
+	student		INT			CONSTRAINT	FK_Grades_Students	FOREIGN KEY REFERENCES Students(student_id),
+	lesson		BIGINT		CONSTRAINT	FK_Grades_Schedule	FOREIGN KEY REFERENCES Schedule(lesson_id),
+	PRIMARY	KEY(student,lesson),
+	grade_1		TINYINT		CONSTRAINT	CK_Grade_1		CHECK	(grade_1>0 AND grade_1<=12),
+	grade_2		TINYINT		CONSTRAINT	CK_Grade_2		CHECK	(grade_2>0 AND grade_2<=12)
+);
 
---CREATE TABLE Exams
---(
---	student		INT			CONSTRAINT	FK_Exams_Students	FOREIGN KEY REFERENCES Students(student_id),
---	discipline	SMALLINT	CONSTRAINT	FK_Exams_Disciplines	FOREIGN KEY REFERENCES Disciplines(discipline_id),
---	grade		TINYINT		CONSTRAINT	CK_Exam_Grade		CHECK	(grade>0 AND grade<=12)
---);
+CREATE TABLE Exams
+(
+	student		INT			CONSTRAINT	FK_Exams_Students	FOREIGN KEY REFERENCES Students(student_id),
+	discipline	SMALLINT	CONSTRAINT	FK_Exams_Disciplines	FOREIGN KEY REFERENCES Disciplines(discipline_id),
+	grade		TINYINT		CONSTRAINT	CK_Exam_Grade		CHECK	(grade>0 AND grade<=12)
+);
 
---CREATE TABLE HomeWorks
---(
---	[group]		INT			CONSTRAINT	FK_HW_Groups	FOREIGN KEY REFERENCES Groups(group_id),
---	lesson		BIGINT		CONSTRAINT	FK_HW_Schedule	FOREIGN KEY REFERENCES Schedule(lesson_id),
---	[data]		VARBINARY(MAX),
---	comment		NVARCHAR(1024),
---	CONSTRAINT  CK_DATA_OR_COMMENT	CHECK ([data] IS NOT NULL OR comment IS NOT NULL),
---	PRIMARY KEY([group], lesson)
---);
+CREATE TABLE HomeWorks
+(
+	[group]		INT			CONSTRAINT	FK_HW_Groups	FOREIGN KEY REFERENCES Groups(group_id),
+	lesson		BIGINT		CONSTRAINT	FK_HW_Schedule	FOREIGN KEY REFERENCES Schedule(lesson_id),
+	[data]		VARBINARY(MAX),
+	comment		NVARCHAR(1024),
+	CONSTRAINT  CK_DATA_OR_COMMENT	CHECK ([data] IS NOT NULL OR comment IS NOT NULL),
+	PRIMARY KEY([group], lesson)
+);
 
 CREATE TABLE ResultsHW
 (
