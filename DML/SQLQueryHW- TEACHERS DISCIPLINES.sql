@@ -1,12 +1,12 @@
---SQLQueryHW- TEACHERS DISCIPLINES.sql
+п»ї--SQLQueryHW- TEACHERS DISCIPLINES.sql
 
 USE PV_521_Import;
 
 SELECT
-     FORMATMESSAGE(N'%s %s %s', last_name,first_name,middle_name) AS [Преподаватель]
-    , birth_date AS [Дата рождения]
-    , DATEDIFF(YEAR, birth_date, GETDATE())                       AS [Возраст]
-    , COUNT(discipline)                                           AS [количество дисциплин]
+     FORMATMESSAGE(N'%s %s %s', last_name,first_name,middle_name) AS [РџСЂРµРїРѕРґР°РІР°С‚РµР»СЊ]
+    , birth_date AS [Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ]
+    , DATEDIFF(YEAR, birth_date, GETDATE())                       AS [Р’РѕР·СЂР°СЃС‚]
+    , COUNT(discipline)                                           AS [РєРѕР»РёС‡РµСЃС‚РІРѕ РґРёСЃС†РёРїР»РёРЅ]
     
 FROM 
     Teachers, TeachersDisciplinesRelation
@@ -20,4 +20,4 @@ GROUP BY
     middle_name,
     birth_date
 ORDER BY
-    [Преподаватель];
+    [РџСЂРµРїРѕРґР°РІР°С‚РµР»СЊ];

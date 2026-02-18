@@ -1,13 +1,13 @@
---SQLQueryHW- DIRECTIONS GROUPS STUDENTS.sql
+п»ї--SQLQueryHW- DIRECTIONS GROUPS STUDENTS.sql
 USE PV_521_Import
 
 --SELECT
---         direction_name AS [Направление]
+--         direction_name AS [РќР°РїСЂР°РІР»РµРЅРёРµ]
 --        , (
 --             SELECT COUNT(DISTINCT group_id)
 --             FROM Groups
 --             WHERE direction = direction_id
---          ) AS [Количество групп]
+--          ) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂСѓРїРї]
 --        , (
 --             SELECT COUNT(stud_id)
 --             FROM Students 
@@ -16,17 +16,17 @@ USE PV_521_Import
 --             FROM Groups
 --             WHERE direction = direction_id
 --          )
---          ) AS [Количество студентов]
+--          ) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ]
 --FROM
 --          Directions 
 --ORDER BY
---        [Направление]
+--        [РќР°РїСЂР°РІР»РµРЅРёРµ]
 --;
 
 SELECT
-          direction_name             AS      [Направление]
-        , COUNT(DISTINCT group_id)   AS      [Количество групп]
-        , COUNT(stud_id)             AS      [Количество студентов]
+          direction_name             AS      [РќР°РїСЂР°РІР»РµРЅРёРµ]
+        , COUNT(DISTINCT group_id)   AS      [РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂСѓРїРї]
+        , COUNT(stud_id)             AS      [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ]
 FROM
           Directions, Groups, Students 
 WHERE     
@@ -35,5 +35,5 @@ AND       [group] = group_id
 GROUP BY
         direction_id, direction_name
 ORDER BY
-        [Направление]
+        [РќР°РїСЂР°РІР»РµРЅРёРµ]
 ;

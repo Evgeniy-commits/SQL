@@ -1,10 +1,10 @@
---SQLQueryHW- DISCIPLINES TEACHERS.sql
+п»ї--SQLQueryHW- DISCIPLINES TEACHERS.sql
 
 USE PV_521_Import;
 
 SELECT
-          discipline_name AS [Дисциплина]
-        , COUNT(teacher) AS [Количество преподавателей]
+          discipline_name AS [Р”РёСЃС†РёРїР»РёРЅР°]
+        , COUNT(teacher) AS [РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРµРїРѕРґР°РІР°С‚РµР»РµР№]
 FROM
         Disciplines, TeachersDisciplinesRelation 
 WHERE   discipline = discipline_id
@@ -13,6 +13,6 @@ GROUP BY
         discipline_name
 
 ORDER BY
-        [Дисциплина]
+        [Р”РёСЃС†РёРїР»РёРЅР°]
 ;
 
