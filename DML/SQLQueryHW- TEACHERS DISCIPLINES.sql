@@ -7,12 +7,9 @@ SELECT
     , birth_date AS [Дата рождения]
     , DATEDIFF(YEAR, birth_date, GETDATE())                       AS [Возраст]
     , COUNT(discipline)                                           AS [количество дисциплин]
-    
 FROM 
     Teachers, TeachersDisciplinesRelation
-
 WHERE teacher = teacher_id
-
 GROUP BY
     teacher_id,
     last_name,
