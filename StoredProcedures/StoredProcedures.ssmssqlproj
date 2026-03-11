@@ -27,6 +27,12 @@
           <AssociatedConnUserName />
           <FullPath>SQLQuery0-Check.sql</FullPath>
         </FileNode>
+        <FileNode Name="SQLQuery1-sp INSERT lesson.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8URQBFL\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8URQBFL\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery1-sp INSERT lesson.sql</FullPath>
+        </FileNode>
         <FileNode Name="SQLQuery1-sp INSERT Schedule.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
