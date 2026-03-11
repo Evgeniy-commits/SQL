@@ -21,4 +21,5 @@ BEGIN
 	AND		[group]		=	@group_id
 	AND		discipline	=	discipline_id
 	AND		teacher		=	teacher_id
+	ORDER BY [date]
 END
