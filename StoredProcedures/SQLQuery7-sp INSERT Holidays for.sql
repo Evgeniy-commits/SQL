@@ -15,14 +15,14 @@ BEGIN
 	DECLARE @start_date	AS	DATE;
 	IF @month IS NOT NULL AND @day IS NOT NULL	SET @start_date = DATEFROMPARTS(@year, @month, @day);
 	IF @holiday LIKE N'Нов%'					SET @start_date = dbo.GetNewYearHolidaysStartDate(@year);
-	--IF @holiday	LIKE N'Пасха'					SET @start_date = NULL;
-	IF @holiday LIKE N'Летние%'					SET @start_date = dbo.GetSummertimeSadness(@year);
+	IF @holiday	LIKE N'Пасха'					SET @start_date = dbo.GetEasterDate(@year);
+	IF @holiday LIKE N'Летние каникулы'			SET @start_date = dbo.GetSummertimeSadness(@year);
 
 	DECLARE @date	AS	DATE	= @start_date;
 	DECLARE @day_num	AS	TINYINT	= 0;
 	WHILE @day_num < @duration
 	BEGIN
-		INSERT DaysOFF	VALUES (@holiday_id, @date)
+		INSERT DaysOFF	VALUES (@date, @holiday_id)
 		SET @day_num += 1;
 		SET @date = DATEADD(DAY, 1, @date);
 	END
