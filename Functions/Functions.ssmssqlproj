@@ -51,6 +51,12 @@
           <AssociatedConnUserName />
           <FullPath>SQLQuery1-GetNextLearningDay.sql</FullPath>
         </FileNode>
+        <FileNode Name="SQLQuery7-CheckWednesday.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery7-CheckWednesday.sql</FullPath>
+        </FileNode>
         <FileNode Name="SQLQuery7-GetEasterDate.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8URQBFL\SQLEXPRESS:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-8URQBFL\SQLEXPRESS</AssociatedConnSrvName>
