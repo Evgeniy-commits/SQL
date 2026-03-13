@@ -34,17 +34,22 @@ END
 --	DECLARE @day		AS	SMALLINT	=	DATEPART(WEEKDAY, @date);
 --	DECLARE @next_day	AS	SMALLINT	=	dbo.GetNextLearningDay(@group_name, @date);
 --	DECLARE @interval	AS	SMALLINT	=	@next_day - @day;
+--	DECLARE @day_of_week AS TINYINT;
+--	DECLARE @weekdays	AS TINYINT;
 --	IF(@interval < 0)	SET @interval = 7 + @interval;
 --	IF(@interval = 0)	SET @interval = 7;
 
 --	DECLARE @next_date	AS	DATE	=	DATEADD(DAY, @interval, @date);
 --	IF dbo.IsLearningDay(@next_date, @group_id) = 1
 --		BEGIN
---			DECLARE @day_of_week AS TINYINT = DATEPART(WEEKDAY, @next_date);
---			DECLARE @weekdays	 AS	TINYINT = (SELECT weekdays FROM Groups WHERE group_name = @group_name);
+--			SET @day_of_week = DATEPART(WEEKDAY, @next_date);
+--			SELECT @weekdays = weekdays FROM Groups WHERE group_id = @group_id;
 
 --			IF (@weekdays & POWER(2, @day_of_week - 1)) != 0
+--			BEGIN
+--				IF NOT EXISTS (SELECT 1 FROM DaysOFF WHERE [date] = @next_date)
 --				RETURN @next_date;
+--			END
 --		END
 --	RETURN
 --	IIF(NOT EXISTS (SELECT holiday FROM DaysOFF WHERE [date] = @next_date), @next_date, dbo.GetNextLearningDate(@group_name, @next_date));

@@ -14,7 +14,7 @@ BEGIN
 	DECLARE @last_day	AS	TINYINT	=	DATEPART(WEEKDAY, @last_date);
 	DECLARE @day		AS	TINYINT	=	@last_day + 1;
 
-	WHILE @day <= 14
+	WHILE @day <= 28
 	BEGIN
 		IF (@weekdays & POWER(2, @day % 7 - 1)) != 0 RETURN @day % 7;
 		SET @day += 1;
