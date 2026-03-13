@@ -52,8 +52,8 @@
           <FullPath>SQLQuery1-GetNextLearningDay.sql</FullPath>
         </FileNode>
         <FileNode Name="SQLQuery7-CheckWednesday.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8URQBFL\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8URQBFL\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>SQLQuery7-CheckWednesday.sql</FullPath>
         </FileNode>
@@ -74,6 +74,12 @@
           <AssociatedConnSrvName>DESKTOP-8URQBFL\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>SQLQuery7-GetSummertimeSadness.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery7-IS learning day.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8URQBFL\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8URQBFL\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery7-IS learning day.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

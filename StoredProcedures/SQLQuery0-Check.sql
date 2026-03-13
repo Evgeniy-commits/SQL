@@ -12,6 +12,7 @@ SET DATEFIRST 1;
 --EXEC sp_InsertScheduleStacionar N'PV_521', N'JavaScript', N'Олег', DEFAULT;
 --EXEC sp_InsertScheduleStacionar N'PV_521', N'ReactJS', N'Олег', DEFAULT;
 --EXEC sp_InsertScheduleStacionar N'PV_521', N'%ASP.NET', N'Олег', DEFAULT;
+--EXEC sp_UnplanHolidays 521, N'2025-02-20';
 EXEC sp_InsertSchedule1221 N'PV_521', N'Hardware%', N'Свищев', N'2025-01-20', 1, 3, 5;
 EXEC sp_InsertSchedule1221 N'PV_521', N'%Windows', N'Свищев', N'2025-04-30', 1, 3, 5;
 EXEC sp_InsertSchedule1221 N'PV_521', N'Процедурное%C++', N'Ковтун', N'2025-01-20', 5, 3, 1;

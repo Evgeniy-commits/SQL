@@ -28,4 +28,3 @@ BEGIN
 	END
 	RETURN @has_les;
 END
-GO
