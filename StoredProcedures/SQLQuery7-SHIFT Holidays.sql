@@ -32,17 +32,18 @@ BEGIN
 			SET @holiday		   = N'Летние каникулы';
 			SET	@holiday_id		   = (SELECT holiday_id	FROM Holidays WHERE	holiday_name LIKE @holiday);
 			SET @duration		   = (SELECT duration	FROM Holidays WHERE holiday_id = @holiday_id) - 7;
-	WHILE  @duration > 0
-	BEGIN
-		INSERT	HolidaySchedule(group_id, [date])
-		VALUES	(@group, @summer_start_date);
-		SET @summer_start_date = DATEADD(DAY, 1, @summer_start_date);
-		SET @duration -= 1;
-	END
-
+		WHILE  @duration > 0
+		BEGIN
+			INSERT	HolidaySchedule(group_id, [date])
+			VALUES	(@group, @summer_start_date);
+			SET @summer_start_date = DATEADD(DAY, 1, @summer_start_date);
+			SET @duration -= 1;
+		END
+		INSERT INTO HolidaySchedule (group_id, [date])
+		SELECT @group AS group_id, [date] FROM DaysOFF WHERE holiday != @holiday_id; 
 		END
 	ELSE
-		BEGIN
+	BEGIN
 			SET @winter_start_date = DATEADD(DAY, 7, @winter_start_date);
 			SET @holiday		   = N'Нов%';
 			SET	@holiday_id		   = (SELECT holiday_id	FROM Holidays WHERE	holiday_name LIKE @holiday);
@@ -54,6 +55,8 @@ BEGIN
 			SET @winter_start_date = DATEADD(DAY, 1, @winter_start_date);
 			SET @duration -= 1;
 		END
+		INSERT INTO HolidaySchedule (group_id, [date])
+		SELECT @group AS group_id, [date] FROM DaysOFF WHERE holiday != @holiday_id; 
 	END
 END
 END

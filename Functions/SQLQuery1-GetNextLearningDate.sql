@@ -18,7 +18,6 @@ BEGIN
 	DECLARE @next_date	AS	DATE	=	DATEADD(DAY, @interval, @date);
 	RETURN
 	IIF ((NOT EXISTS (SELECT 1 FROM HolidaySchedule WHERE group_id = @group_id AND [date] = @next_date))
-		AND (NOT EXISTS (SELECT 1 FROM DaysOFF WHERE [date] = @next_date))
 		AND (NOT EXISTS (SELECT 1 FROM GroupUnplanHolidays WHERE  group_id = @group_id AND [date] = @next_date)),
 		@next_date, dbo.GetNextLearningDate(@group_name, @next_date));
 	--IF NOT EXISTS (SELECT 1 FROM DaysOFF WHERE [date] = @next_date) 
@@ -26,4 +25,3 @@ BEGIN
 	--   SET @next_date = dbo.GetNextLearningDate(@group_name, @next_date);
 	--RETURN @next_date;
 END
-

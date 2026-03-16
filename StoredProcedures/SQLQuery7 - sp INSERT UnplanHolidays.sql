@@ -10,8 +10,8 @@ AS
 BEGIN
 DECLARE @group_id	AS	INT		=	(SELECT group_id	FROM Groups		WHERE group_name = @group_name);
 IF @group_id IS NULL OR @hol_start IS NULL RETURN;
-IF OBJECT_ID('GroupUnplanHolidays', 'U') IS NOT NULL
-   DROP TABLE dbo.GroupUnplanHolidays;
+DROP TABLE IF EXISTS GroupUnplanHolidays;
+
 CREATE TABLE GroupUnplanHolidays (group_id INT NOT NULL,
 								  [date] DATE NOT NULL,
 								  PRIMARY KEY (group_id, [date]));
