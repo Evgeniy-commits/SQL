@@ -101,14 +101,14 @@ BEGIN
 			EXEC sp_InsertLesson @group, @discipline, @teacher, @date, @time OUTPUT, @lessons_number OUTPUT;
 		END
 		--IF DATEPART(WEEKDAY, @date) = @constant_day SET @date = DATEADD(DAY, 7, @date);
-		SET @date = dbo.GetNextLearningDate(@group_name, @date);
+		SET @date = dbo.GetNextLearningDate(@group_name, @date, @teacher);
 		WHILE DATEPART(WEEKDAY, @date) = @denied_day
 		BEGIN
-			SET @date = dbo.GetNextLearningDate(@group_name, @date);
+			SET @date = dbo.GetNextLearningDate(@group_name, @date, @teacher);
 			IF DATEPART(WEEKDAY, @date) = @alternate_day 
 			AND EXISTS (SELECT lesson_id FROM Schedule WHERE [date] = DATEADD(DAY, -7, @date)
 			AND discipline = @discipline)
-			SET @date = dbo.GetNextLearningDate(@group_name, @date);
+			SET @date = dbo.GetNextLearningDate(@group_name, @date, @teacher);
 		END
 	END
 END

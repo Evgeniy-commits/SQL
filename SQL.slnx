@@ -3,27 +3,27 @@
     <BuildType Name="Default" />
     <Platform Name="Default" />
   </Configurations>
-  <Project Path="../../../../../source/repos/SQL/DDL/DDL.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
+  <Project Path="DDL/DDL.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
     <Platform Project="?" />
     <Build Project="false" />
   </Project>
-  <Project Path="../../../../../source/repos/SQL/DML/DML.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
+  <Project Path="DML/DML.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
     <Platform Project="?" />
     <Build Project="false" />
   </Project>
-  <Project Path="../../../../../source/repos/SQL/Functions/Functions.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
+  <Project Path="Functions/Functions.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
     <Platform Project="?" />
     <Build Project="false" />
   </Project>
-  <Project Path="../../../../../source/repos/SQL/SQL/SQL.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
+  <Project Path="SQL/SQL.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
     <Platform Project="?" />
     <Build Project="false" />
   </Project>
-  <Project Path="../../../../../source/repos/SQL/StoredProcedures/StoredProcedures.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
+  <Project Path="StoredProcedures/StoredProcedures.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
     <Platform Project="?" />
     <Build Project="false" />
   </Project>
-  <Project Path="../../../../../source/repos/SQL/Transact - SQL/Transact - SQL.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
+  <Project Path="Transact - SQL/Transact - SQL.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
     <Platform Project="?" />
     <Build Project="false" />
   </Project>
