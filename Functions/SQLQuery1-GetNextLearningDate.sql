@@ -19,14 +19,11 @@ BEGIN
 	IF(@interval < 0)	SET @interval = 7 + @interval;
 	IF(@interval = 0)	SET @interval = 7;
 	DECLARE @next_date		AS	DATE	=	DATEADD(DAY, @interval, @date);
-	DECLARE @teacher_free	AS BIT  =	1;
-
-	IF EXISTS (SELECT 1 FROM Schedule WHERE [date] = @next_date AND teacher = @teacher AND [group] != @group_id)
-		SET @teacher_free = 0;
+	
 	RETURN
-	IIF (@teacher_free = 1
-		AND (NOT EXISTS (SELECT 1 FROM HolidaySchedule WHERE group_id = @group_id AND [date] = @next_date))
-		AND (NOT EXISTS (SELECT 1 FROM GroupUnplanHolidays WHERE  group_id = @group_id AND [date] = @next_date)),
+	IIF (NOT EXISTS (SELECT 1 FROM Schedule WHERE [date] = @next_date AND teacher = @teacher AND [group] != @group_id)
+		 AND (NOT EXISTS (SELECT 1 FROM HolidaySchedule WHERE group_id = @group_id AND [date] = @next_date))
+		 AND (NOT EXISTS (SELECT 1 FROM GroupUnplanHolidays WHERE  group_id = @group_id AND [date] = @next_date)),
 		@next_date, dbo.GetNextLearningDate(@group_name, @next_date, @teacher));
 	--IF NOT EXISTS (SELECT 1 FROM DaysOFF WHERE [date] = @next_date) 
 	--   AND NOT EXISTS (SELECT 1 FROM GroupUnplanHolidays WHERE  group_id = @group_id AND [date] = @next_date)
